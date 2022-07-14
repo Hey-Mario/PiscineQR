@@ -8,7 +8,6 @@ api = Api(app)
 
 
 class Profs(Resource):
-
     def post(self):
         data = {}
         if "photo" in request.files:

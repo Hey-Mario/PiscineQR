@@ -22,5 +22,5 @@ class Students(Resource):
         body = request.form.to_dict(flat=False)
         for attr, value in body.items():
                 data[attr] = value[0]
-        db_connect.db.student.insert_one(data)
+        db_connect.db.students.insert_one(data)
         return redirect("/student")
