@@ -7,17 +7,28 @@
 <body>
 
 
- <table>
-     <tr>
-         <td>nom</td>
-         <td>prenom</td>
-     </tr>
-     {%for i in range(0, len)%}
-     <tr>
-         <td>{{students[i].nom}}</td>
-         <td>{{students[i].prenom}}</td>
-     </tr>
-     {%endfor%}
- </table>
+    <table border="1">
+        <tr>
+            <td>Nom</td>
+            <td>Prenom</td>
+            <td>Sexe</td>
+            <td>Email</td>
+            <td>Age</td>
+            <td>Telephone</td>
+            <td>Classe</td>
+            <td>Details</td>
+        </tr>
+        {%for i in range(0, len)%}
+        <tr>
+            <td>{{students[i].nom}}</td>
+            <td>{{students[i].prenom}}</td>
+            <td>{{students[i].sexe}}</td>
+            <td>{{students[i].email}}</td>
+            <td>{{students[i].age}}</td>
+            <td>{{students[i].telephone}}</td>
+            <td>{{students[i].module}}</td>
+            <td><a href="/student/{{students[i]._id}}/qrcode">détails</a></td>
+        </tr>
+        {%endfor%}
 </body>
 </html>
