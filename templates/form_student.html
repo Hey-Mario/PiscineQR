@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <h2>Formulaire</h2>
+     <form method="POST" action="http://127.0.0.1:5000/student">
+         <fieldset>
+             <legend>Mes informations</legend>
+             <label>Matricule</label> : <input type="number"/><br>
+             <label>Nom</label>  : <input type="text" name="nom" />
+             <div><label>Prenom</label>  : <input type="text" name="prenom" /></div>
+
+                  <br>
+             <label>E-mail</label>  : <input type="email" name="email" />
+             <br>
+             <label>Classe</label> : <input type="text" name="classe"/><br>
+             Vous êtes : <br><input type="radio" name="sexe"> Une fille <br>
+                             <input type="radio" name="sexe"> Un garcon<br>
+                         <br>
+             Date de naissance : <input type="date" name="">
+                         <br>
+             <label>Nom du Pere</label>  : <input type="text" name="nomdupere" />
+                         <br>
+             <label>Téléphone</label> : <input type="number" name="telephone"/><br>
+             <label>Nom du Mere</label>  : <input type="text" name="nomdumere" />
+                         <br>
+             <label>Téléphone</label> : <input type="number" name="telephone1"/><br>
+             <label>Mot de passe</label> : <input type="password" name="motdepasse" id=""/><br>
+                           <input type="submit" value="Envoyer mes informations" name="subform">
+
+         </fieldset>
+     </form>
+</body>
+</html>

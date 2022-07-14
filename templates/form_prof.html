@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <h2>Formulaire</h2>
+     <form method="POST" action="http://127.0.0.1:5000/prof" enctype="multipart/form-data">
+         <fieldset>
+             <legend>Mes informations</legend>
+             Genre : <br><input type="radio" name="sexe" value="Femme">Femme<br>
+             <input type="radio" name="sexe" value="Homme">Homme<br>
+             <br>
+             <label>Nom</label>  : <input type="text" name="nom" />
+             <div><label>Prenom</label>  : <input type="text" name="prenom" /></div>
+             <br>
+             <label>E-mail</label>  : <input type="email" name="email" />
+             <br>
+             Date de naissance : <input type="date" name="date_de_naissance">
+                         <br>
+             <label>Téléphone</label> : <input type="number" name="telephone"/><br>
+            <label>Vous êtes profs de:</label>
+             <div>
+                 <input type="checkbox" name="module" value="math">
+                 <label>math</label>
+             </div>
+             <div>
+                 <input type="checkbox" name="module"  value="info250">
+                 <label>info250</label>
+             </div>
+             <div>
+                 <input type="checkbox" name="module"  value="info160">
+                 <label>info160</label>
+             </div>
+             <div>
+                 <input type="checkbox" name="module"  value="entr120">
+                 <label>entr120</label>
+             </div><br>
+             <input type="file" name="photo"><br>
+             <button type="submit">Envoyer</button>
+         </fieldset>
+     </form>
+</body>
+</html>
