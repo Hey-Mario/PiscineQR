@@ -16,12 +16,12 @@ def prof_or_student():
 
 @app.route("/student/signin")
 def student_form():
-    return render_template("form_student.html", )
+    return render_template("form_student.html")
 
 
 @app.route("/prof/signin")
 def prof_form():
-    return render_template("form_prof.html", )
+    return render_template("form_prof.html")
 
 
 @app.route("/student")
@@ -33,15 +33,15 @@ def student_list():
 
 @app.route("/prof")
 def prof_list():
-    prof = db_connect.db.profs.find()
-    list_prof = list(prof)
+    profs = db_connect.db.profs.find()
+    list_prof = list(profs)
     return render_template("list_prof.html", len=len(list_prof), profs=list_prof)
 
 
 @app.route("/prof/<id>/details")
 def prof_details(id):
-    prof = db_connect.db.profs.find_one({"_id": ObjectId(id)})
-    return render_template("prof_details.html", prof=prof)
+    profs = db_connect.db.profs.find_one({"_id": ObjectId(id)})
+    return render_template("prof_details.html", prof=profs)
 
 
 @app.route("/prof/<id>/qrcode")
@@ -50,20 +50,26 @@ def prof_qrcode(id):
     img_location = "pic_qr/" + id + ".jpg"
     img_path = "static/" + img_location
     img.save(img_path)
-    db_connect.db.profs.insert_one({"qrcode" : img_location})
-    prof = db_connect.db.profs.find_one({"_id": ObjectId(id)})
-    return render_template("prof_qr.html", prof=prof)
+    newvalues = {"$set" : {"qrcode": img_location}}
+    db_connect.db.profs.update(prof.Profs.post('self').data, newvalues)
+    profs = db_connect.db.profs.find_one({"_id": ObjectId(id)})
+    return render_template("prof_qr.html", prof=profs)
 
 
 @app.route("/student/<id>/details")
 def student_details(id):
-    student = db_connect.db.profs.find_one({"_id": ObjectId(id)})
-    return render_template("student_details.html", student=student)
+    students = db_connect.db.profs.find_one({"_id": ObjectId(id)})
+    return render_template("student_details.html", student=students)
 
 
-@app.route("/scanner")
-def scanner():
-    return render_template("scanner.html")
+@app.route("/scanner_e")
+def scanner_e():
+    return render_template("scanner_etudiant.html")
+
+
+@app.route("/scanner_p")
+def scanner_p():
+    return render_template("scanner_prof.html")
 
 
 api.add_resource(student.Students, "/student")
