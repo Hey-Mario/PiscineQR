@@ -31,6 +31,8 @@ def student_list():
     return render_template("list_student.html", len=len(list_student), students=list_student)
 
 
+@app.route("/")
+
 @app.route("/prof")
 def prof_list():
     profs = db_connect.db.profs.find()
