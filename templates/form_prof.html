@@ -4,100 +4,114 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulaire d'inscription/prof</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 
 <body>
-
-    <h2>Formulaire d'inscription</h2>
-    <form method="POST" action="http://127.0.0.1:5000/prof" enctype="multipart/form-data">
-        Genre : <br><input type="radio" name="sexe" value="Femme" required=True>Femme<br>
-        <input type="radio" name="sexe" value="Homme">Homme<br>
-        <br>
-        <label>Nom</label> : <input type="text" name="nom" placeholder="Votre nom" required=True/>
-        <div><label>Prenom(s)</label> : <input type="text" name="prenom" placeholder="Votre prénom" required=True/></div>
-        Votre adresse: <input type="text" name="address"><br> Votre âge : <input type="number" name="age" size="2" required=True>
-        <br>
-        <label>E-mail</label> : <input type="email" name="email" placeholder="exemple@gmail.com" required=True/><br>
-
-        <label>Téléphone</label> : <input type="number" name="telephone" size="10" placeholder="03********" required=True/><br>
-        <label>Vous êtes professeur de:</label>
-        <div>
-            <input type="checkbox" name="module" value="MATH_110">
-            <label>MATH_110</label>
-
-            <input type="checkbox" name="module" value="MATH_120">
-            <label>MATH_120</label>
-
-            <input type="checkbox" name="module" value="MATH_210">
-            <label>MATH_210</label>
+    <div class="container w-50 my-2 border border-dark rounded">
+        <!-- <h2 class="text-uppercase text-primary text-center my-3" style="font-family: 'Times New Roman', Times, serif;">Formulaire d'inscription</h2> -->
+        <div class="container-fluid mx-n3 mb-3 p-3 bg-dark text-white w-75">
+            <h1>Formulaire d'inscription</h1>
+            <p>Inscrivez vous parmis les meilleurs.</p>
         </div>
-        <div>
-            <input type="checkbox" name="module" value="MATH_220">
-            <label>MATH_220</label>
+        <form method="POST" action="http://127.0.0.1:5000/prof" enctype="multipart/form-data" class="mb-2 px-3">
+            <div class="form-group"><label>Genre</label>
+                <div class="custom-control custom-radio">
+                    <input type="radio" name="sexe" value="Femme" class="" required=True><label>Femme</label><br>
+                    <input type="radio" name="sexe" value="Homme" class=""><label>Homme</label></div>
+            </div>
+            <div class="row">
+                <div class="col"><label>Nom</label><input type="text" name="nom" class="form-control" placeholder="Votre nom" required=True/></div>
+                <div class="col"><label>Prenom(s)</label><input type="text" class="form-control" name="prenom" placeholder="Votre prénom" required=True/><br></div>
+            </div>
+            <div class="row">
+                <div class="col"><label>Email</label><input type="email" name="email" class="form-control" placeholder="name@example.com" required=True/></div>
+                <div class="col"><label>Téléphone</label><input type="tel" name="telephone" class="form-control" size="10" placeholder="03********" required=True/><br></div>
+            </div>
+            <div class="row">
+                <div class="col"><label>Votre adresse</label><input type="text" name="address" class="form-control" placeholder="adresse"></div>
+                <div class="col"><label>Votre âge</label><input type="number" name="age" class="form-control" size="2" required=True placeholder="âge"><br></div>
+            </div>
+            <div class="form-group">
+                <label>Vous êtes professeur de :</label>
+                <div class="module ml-5 row">
+                    <div class="form-check col-lg-6">
+                        <div class="form-group">
+                            <p class="font-weight-bold">Mathématiques</p>
+                            <input type="checkbox" name="module" class="form-check-input" value="Analyse et Algebre">
+                            <label>Analyse et Algebre</label><br>
 
-            <input type="checkbox" name="module" value="INFO_242">
-            <label>INFO_242</label>
+                            <input type="checkbox" name="module" class="form-check-input" value="Recherche Opérationnelle">
+                            <label>Recherche Opérationnelle</label><br>
 
-            <input type="checkbox" name="module" value="INFO_250">
-            <label>INFO_250</label>
-        </div>
-        <div>
-            <input type="checkbox" name="module" value="INFO_253">
-            <label>INFO_253</label>
+                            <input type="checkbox" name="module" class="form-check-input" value="Calcule Numérique">
+                            <label>Calcule Numérique</label><br>
+                        </div>
+                        <div class="form-group">
+                            <p class="font-weight-bold">Informatique et programmation</p>
+                            <input type="checkbox" name="module" class="form-check-input" value="Language C">
+                            <label>Language C</label><br>
 
-            <input type="checkbox" name="module" value="INFO_262">
-            <label>INFO_262</label>
+                            <input type="checkbox" name="module" class="form-check-input" value="Bases de données">
+                            <label>Bases de données</label><br>
 
-            <input type="checkbox" name="module" value="INFO_264">
-            <label>INFO_264</label>
-        </div>
-        <div>
-            <input type="checkbox" name="module" value="INFO_110">
-            <label>INFO_110</label>
+                            <input type="checkbox" name="module" class="form-check-input" value="Algorithmes fondamentaux">
+                            <label>Algorithmes fondamentaux</label><br>
 
-            <input type="checkbox" name="module" value="INFO_120">
-            <label>INFO_120</label>
+                            <input type="checkbox" name="module" class="form-check-input" value="Web statique">
+                            <label>Web statique</label><br>
+                        </div>
+                        <div class="form-group">
+                            <p class="font-weight-bold">Communications</p>
+                            <input type="checkbox" name="module" class="form-check-input" value="Français">
+                            <label>Français</label><br>
 
-            <input type="checkbox" name="module" value="INFO_140">
-            <label>INFO_140</label>
-        </div>
-        <div>
-            <input type="checkbox" name="module" value="INFO_150">
-            <label>INFO_150</label>
+                            <input type="checkbox" name="module" class="form-check-input" value="Anglais">
+                            <label>Anglais</label><br>
+                        </div>
+                    </div>
+                    <div class="form-group form-check col-lg-6">
+                        <div class="form-group">
+                            <p class="font-weight-bold">Entreprises</p>
+                            <input type="checkbox" name="module" class="form-check-input" value="Fonctionnement des organisations">
+                            <label>Fonctionnement des organisations</label><br>
 
-            <input type="checkbox" name="module" value="INFO_160">
-            <label>INFO_160</label>
+                            <input type="checkbox" name="module" class="form-check-input" value="Devenir Manager">
+                            <label>Devenir Manager</label><br>
 
-            <input type="checkbox" name="module" value="INFO_163">
-            <label>INFO_163</label>
-        </div>
-        <div>
-            <input type="checkbox" name="module" value="INFO_162">
-            <label>INFO_162</label>
+                            <input type="checkbox" name="module" class="form-check-input" value="Leadership">
+                            <label>Leadership</label><br>
+                        </div>
+                        <div class="form-group">
+                            <p class="font-weight-bold">Système et réseau</p>
+                            <input type="checkbox" name="module" class="form-check-input" value="Architecture des ordinateurs">
+                            <label>Architecture des ordinateurs</label><br>
 
-            <input type="checkbox" name="module" value="ENTR_110">
-            <label>ENTR_110</label>
+                            <input type="checkbox" name="module" class="form-check-input" value="Système informatique">
+                            <label>Système informatique</label><br>
 
-            <input type="checkbox" name="module" value="ENTR_120">
-            <label>ENTR_120</label>
-        </div>
-        <div>
-            <input type="checkbox" name="module" value="ENTR_210">
-            <label>ENTR_210</label>
+                            <input type="checkbox" name="module" class="form-check-input" value="Réseaux">
+                            <label>Réseaux</label><br>
 
-            <input type="checkbox" name="module" value="LANG_110">
-            <label>LANG_110</label>
+                            <input type="checkbox" name="module" class="form-check-input" value="Maintenance logicielle">
+                            <label>Maintenance logicielle</label><br>
 
-            <input type="checkbox" name="module" value="LANG_120">
-            <label>LANG_120</label>
-        </div>
-        <br>
+                            <input type="checkbox" name="module" class="form-check-input" value="Maintenance matérielle">
+                            <label>Maintenance matérielle</label><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <label>Insérez votre photo:</label><input type="file" name="photo" required=True><br>
-        <button type="submit">Envoyer</button>
-
-    </form>
+            <label>Insérez votre photo:</label>
+            <div class="custom-file mb-3">
+                <input type="file" name="photo" required=True class="custom-file-input">
+                <label class="custom-file-label">Importer votre photo</label>
+            </div>
+            <button type="submit" class="btn btn-primary mb-1">Envoyer</button>
+        </form>
+    </div>
 </body>
 
 </html>
