@@ -16,7 +16,7 @@ def prof_or_student():
 
 @app.route("/student/signin")
 def student_form():
-    return render_template("form_student.html")
+    return render_template("formstudent/form_student.html")
 
 
 @app.route("/prof/signin")
@@ -56,6 +56,7 @@ def e_inscrit():
 def prof_details(id):
     profs = db_connect.db.profs.find_one({"_id": ObjectId(id)})
     return render_template("prof_details.html", prof=profs)
+
 
 @app.route("/student/<id>/details")
 def student_details(id):
