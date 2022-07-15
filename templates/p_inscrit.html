@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Succeed Inscription</title>
+</head>
+<body>
+            {% if profs[len-1].sexe == "Homme" %}
+            <h2>Bonjour Mr {{profs[len-1].nom}}</h2>
+            {% else %}
+            <h2>Bonjour Mdm {{profs[len-1].nom}}</h2>
+            {%endif%}
+            <h3>Votre inscription a été effectuée avec succès</h3>
+            <a href="/prof/{{profs[len-1]._id}}/qrcode">Obtenir votre qrcode</a>
+
+</body>
+</html>

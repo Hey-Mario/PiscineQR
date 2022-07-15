@@ -24,26 +24,43 @@ def prof_form():
     return render_template("form_prof.html")
 
 
-@app.route("/student")
+@app.route("/student/54321")
 def student_list():
     students = db_connect.db.students.find()
     list_student = list(students)
     return render_template("list_student.html", len=len(list_student), students=list_student)
 
 
-@app.route("/")
-
-@app.route("/prof")
+@app.route("/prof/12345")
 def prof_list():
     profs = db_connect.db.profs.find()
     list_prof = list(profs)
     return render_template("list_prof.html", len=len(list_prof), profs=list_prof)
 
 
+@app.route("/p_inscrit")
+def p_inscrit():
+    profs = db_connect.db.profs.find()
+    list_prof = list(profs)
+    return render_template("p_inscrit.html", len=len(list_prof), profs=list_prof)
+
+
+@app.route("/e_inscrit")
+def e_inscrit():
+    students = db_connect.db.students.find()
+    list_student = list(students)
+    return render_template("e_inscrit.html", len=len(list_student), students=list_student)
+
+
 @app.route("/prof/<id>/details")
 def prof_details(id):
     profs = db_connect.db.profs.find_one({"_id": ObjectId(id)})
     return render_template("prof_details.html", prof=profs)
+
+@app.route("/student/<id>/details")
+def student_details(id):
+    students = db_connect.db.profs.find_one({"_id": ObjectId(id)})
+    return render_template("student_details.html", student=students)
 
 
 @app.route("/prof/<id>/qrcode")

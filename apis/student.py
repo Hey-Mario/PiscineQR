@@ -23,4 +23,4 @@ class Students(Resource):
         for attr, value in body.items():
                 data[attr] = value[0]
         db_connect.db.students.insert_one(data)
-        return redirect("/student")
+        return redirect("/e_inscrit")

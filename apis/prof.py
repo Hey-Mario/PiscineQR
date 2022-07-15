@@ -24,4 +24,4 @@ class Profs(Resource):
             else:
                 data[attr] = value[0]
         db_connect.db.profs.insert_one(data)
-        return redirect("/prof")
+        return redirect("/p_inscrit")
