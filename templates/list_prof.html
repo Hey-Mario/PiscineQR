@@ -33,7 +33,7 @@
                     <td>{{profs[i].age}}</td>
                     <td>{{profs[i].telephone}}</td>
                     <td>{%for module in profs[i].module%}{{module}}, {%endfor%}</td>
-                    <td><a href="/prof/{{profs[i]._id}}/qrcode">détails</a></td>
+                    <td><a href="/prof/{{profs[i]._id}}/details">détails</a></td>
                 </tr>
                 {%endfor%}
             </tbody>

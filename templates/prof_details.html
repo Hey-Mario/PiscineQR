@@ -3,45 +3,73 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <title>Details du professeur</title>
+    <style>
+        p {
+            font-size: larger;
+        }
+        
+        .info_right {
+            margin-left: 15px;
+        }
+        
+        #container {
+            height: 100vh;
+        }
+        
+        .detail {
+            width: 1200px;
+            margin-left: 100px;
+        }
+    </style>
 </head>
 
-<body>
-    <h1>Vos Informations sont ci-dessous:</h1><br>
-    <br>
+<body class="bg-light">
     <div id="container">
-        <div class="left">
-            <div class="image"><img src="{{url_for('static', filename=prof.photo)}}" alt="" width="150" height="150"></div>
-            <div class="info_left">
-                <h3>CONTACT</h3>
-                <p><b> Numéro :</b> {{prof.telephone}}</p>
-                <p><b> Email :</b> {{prof.email}}</p>
+        <div class="container bg-light">
+            <div class="text-center text-dark mb-5 mt-4">
+                <h1>Vos Informations sont ci-dessous</h1>
+            </div>
+            <div class="detail">
+                <div class="container row bg-white w-75">
+                    <div class="col-lg-4 bg-dark text-white pt-3 ml-n3">
+                        <div class="text-center ml-n2"><img src="{{url_for('static', filename=prof.photo)}}" class="rounded-circle" alt="" width="150" height="150"></div>
+                        <div class="info_left mt-5 text-center">
+                            <h3>CONTACT</h3>
+                            <p><b> Numéro :</b> {{prof.telephone}}</p>
+                            <p><b> Email :</b> {{prof.email}}</p>
 
-                <h3>ADRESSE</h3>
-                <p></p>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div><img src="logo esti.jpg" alt=""></div>
+                        <div class="name_title text-center mb-4">
+                            <h1>{{prof.nom}} {{prof.prenom}}</h1>
+                        </div>
+                        <div class="info_right">
+                            <p>
+                                <b> Professeur de:</b>
+                                <ul class="list-unstyled">
+                                    {%for module in prof.module%}
+                                    <li>{{module}}</li>
+                                    {%endfor%}
+                                </ul>
+                            </p><br>
+                            <p><b> Genre :</b> {{prof.sexe}}</p>
+                            <p><b> Age :</b>{{prof.age}}</p>
+                            <h4>ADRESSE :</h4>
+                            <p>{{prof.address}}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="right">
-            <div><img src="logo esti.jpg" alt=""></div>
-            <div class="name_title">
-                <h1>{{prof.nom}} {{prof.prenom}}</h1>
-            </div>
-            <div class="info_right">
-                <p>
-                    Professeur de:
-                    <ul>
-                        {%for module in prof.module%}
-                        <li>{{module}}</li>
-                        {%endfor%}
-                    </ul>
-                </p><br>
-                <p><b> Genre :</b> {{prof.sexe}}</p>
-                <p><b> Date de naissance :</b>{{prof.date_de_naissance}}</p>
-            </div>
-        </div>
+        <div class="text-center mb-5">
+            <a href="https://calendar.google.com/calendar/u/0/r" class="">Recevoir votre emploi du temps</a></div>
     </div>
-    <a href="/prof">Retour à la liste</a>
+
 </body>
 
 </html>

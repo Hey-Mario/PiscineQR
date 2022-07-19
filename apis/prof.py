@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect
+from flask import Flask, request, redirect
 from flask_restful import Api, Resource
 from werkzeug.utils import secure_filename
 import db_connect
@@ -24,4 +24,4 @@ class Profs(Resource):
             else:
                 data[attr] = value[0]
         db_connect.db.profs.insert_one(data)
-        return redirect("/prof")
+        return redirect("/p_inscrit")

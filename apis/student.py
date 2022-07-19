@@ -1,8 +1,6 @@
-from bson import json_util
-from flask import Flask, request, render_template, render_template_string
+from flask import Flask, request, redirect
 from flask_restful import Api, Resource
-from werkzeug.utils import secure_filename, redirect
-
+from werkzeug.utils import secure_filename
 import db_connect
 
 app = Flask(__name__)
@@ -21,6 +19,6 @@ class Students(Resource):
                 data["photo"] = file_path
         body = request.form.to_dict(flat=False)
         for attr, value in body.items():
-                data[attr] = value[0]
+            data[attr] = value[0]
         db_connect.db.students.insert_one(data)
-        return redirect("/student")
+        return redirect("/e_inscrit")

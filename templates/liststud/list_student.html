@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='liststud.css')}}">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
 
 
@@ -26,9 +29,11 @@
             <td>{{students[i].email}}</td>
             <td>{{students[i].age}}</td>
             <td>{{students[i].telephone}}</td>
-            <td>{{students[i].module}}</td>
-            <td><a href="/student/{{students[i]._id}}/qrcode">détails</a></td>
+            <td>{{students[i].classe}}</td>
+            <td><a href="/student/{{students[i]._id}}/details">détails</a></td>
         </tr>
         {%endfor%}
+        </table>
 </body>
+
 </html>
